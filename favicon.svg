@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- NES Controller pixel art -->
+  <rect width="32" height="32" fill="#181824"/>
+  <rect x="2" y="6" width="28" height="20" fill="#b8b8b8"/>
+  <rect x="4" y="8" width="24" height="16" fill="#888890"/>
+  <rect x="6" y="10" width="20" height="12" fill="#202028"/>
+  <!-- D-pad -->
+  <rect x="8" y="13" width="6" height="2" fill="#000000"/>
+  <rect x="10" y="11" width="2" height="6" fill="#000000"/>
+  <!-- Select / Start -->
+  <rect x="15" y="15" width="2" height="1" fill="#b8b8b8"/>
+  <rect x="18" y="15" width="2" height="1" fill="#b8b8b8"/>
+  <!-- B and A buttons (Crimson) -->
+  <rect x="21" y="14" width="2" height="2" fill="#d82800"/>
+  <rect x="24" y="14" width="2" height="2" fill="#d82800"/>
+  <!-- Pixel border highlight -->
+  <rect x="0" y="0" width="32" height="2" fill="#d82800"/>
+  <rect x="0" y="30" width="32" height="2" fill="#d82800"/>
+</svg>
