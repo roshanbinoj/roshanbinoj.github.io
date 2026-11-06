@@ -46,22 +46,6 @@ export const StartScreen: React.FC = () => {
           width: '100%',
         }}
       >
-        <div
-          style={{
-            display: 'inline-block',
-            backgroundColor: 'var(--color-primary)',
-            color: '#ffffff',
-            padding: '4px 12px',
-            fontFamily: 'var(--font-pixel)',
-            fontSize: '10px',
-            marginBottom: '16px',
-            border: '2px solid #ffffff',
-            boxShadow: '3px 3px 0 #000',
-            letterSpacing: '2px',
-          }}
-        >
-          ★ 8-BIT SINGLE PAGE APPLICATION PORTFOLIO ★
-        </div>
 
         <h1
           style={{
