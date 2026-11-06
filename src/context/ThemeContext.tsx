@@ -45,13 +45,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return true;
   });
 
-  const [crtEnabled, setCrtEnabledState] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('nes_crt');
-      if (saved !== null) return saved === 'true';
-    }
-    return true;
-  });
+  // Always starts off on page load; the toggle only lasts for the current visit
+  const [crtEnabled, setCrtEnabledState] = useState<boolean>(false);
 
   const [score, setScore] = useState<number>(() => {
     if (typeof window !== 'undefined') {
@@ -75,10 +70,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     sound.setEnabled(soundEnabled);
     localStorage.setItem('nes_sound', String(soundEnabled));
   }, [soundEnabled]);
-
-  useEffect(() => {
-    localStorage.setItem('nes_crt', String(crtEnabled));
-  }, [crtEnabled]);
 
   useEffect(() => {
     localStorage.setItem('nes_score', String(score));
