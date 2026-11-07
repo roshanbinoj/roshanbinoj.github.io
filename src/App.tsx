@@ -11,6 +11,7 @@ import { Projects } from './pages/Projects';
 import { Contact } from './pages/Contact';
 import { Settings } from './pages/Settings';
 import { CRTOverlay } from './components/common/CRTOverlay';
+import { VisitCounter } from './components/common/VisitCounter';
 import { PauseModal } from './components/modals/PauseModal';
 import { sound } from './utils/audio';
 
@@ -140,6 +141,7 @@ const AppContent: React.FC = () => {
         <div style={{ color: 'var(--text-dim)' }}>
           PRESS [1-7] TO JUMP STAGES • [M] OVERWORLD MAP • [ESC] PAUSE • [S] SFX • [C] COIN
         </div>
+        <VisitCounter />
       </footer>
     </div>
   );
