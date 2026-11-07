@@ -20,7 +20,7 @@ export const HERO_PROFILE = {
   records: [
     { label: 'CGPA', value: '7.91 / 10' },
     { label: 'INTERNSHIPS', value: '1' },
-    { label: 'PROJECTS', value: '3' },
+    { label: 'PROJECTS', value: '7' },
     { label: 'PICOCTF 2025', value: 'TOP 4%' },
   ],
   bio: `Greetings, traveler! I'm Roshan Binoj, a software engineer and full-stack developer from Thiruvananthapuram, India. I'm studying Computer Science and Engineering at IIIT Kottayam and will finish in April 2027.`,
@@ -43,6 +43,10 @@ const KENNEDYS = 'Kennedys IQ';
 const TRANSIT = 'TransitOps';
 const FILES = 'Desktop File Analytics System';
 const RECIPE = 'HackTheRecipe';
+const TRADE = 'TradeBridge';
+const FINTRACK = 'FinTrack';
+const ASSEMBLER = '8051 Assembler & Emulator';
+const SPOTIFY = 'Spotify Song Recommender';
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
@@ -51,12 +55,12 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: '⚡',
     skills: [
       { name: 'C', usedIn: [] },
-      { name: 'C++', usedIn: [FILES] },
+      { name: 'C++', usedIn: [FILES, ASSEMBLER] },
       { name: 'Java', usedIn: [] },
-      { name: 'Python', usedIn: [KENNEDYS, RECIPE] },
+      { name: 'Python', usedIn: [KENNEDYS, RECIPE, SPOTIFY] },
       { name: 'JavaScript', usedIn: [] },
-      { name: 'TypeScript', usedIn: [TRANSIT, FILES, RECIPE] },
-      { name: 'SQL', usedIn: [] },
+      { name: 'TypeScript', usedIn: [TRANSIT, FINTRACK, FILES, TRADE, RECIPE] },
+      { name: 'SQL', usedIn: [TRADE] },
     ],
   },
   {
@@ -64,15 +68,15 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: 'Frameworks & Libraries',
     icon: '🧪',
     skills: [
-      { name: 'React', usedIn: [FILES, RECIPE] },
-      { name: 'Next.js', usedIn: [TRANSIT] },
+      { name: 'React', usedIn: [FINTRACK, FILES, TRADE, RECIPE] },
+      { name: 'Next.js', usedIn: [TRANSIT, FINTRACK, TRADE] },
       { name: 'Node.js', usedIn: [] },
       { name: 'Express.js', usedIn: [] },
       { name: 'FastAPI', usedIn: [RECIPE] },
       { name: 'Flask', usedIn: [] },
       { name: 'Prisma', usedIn: [TRANSIT] },
       { name: 'TanStack Query', usedIn: [] },
-      { name: 'Tailwind', usedIn: [TRANSIT, RECIPE] },
+      { name: 'Tailwind', usedIn: [TRANSIT, FINTRACK, TRADE, RECIPE] },
     ],
   },
   {
@@ -82,7 +86,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: 'LangChain', usedIn: [RECIPE] },
       { name: 'Gemini API', usedIn: [RECIPE] },
-      { name: 'Groq API', usedIn: [KENNEDYS] },
+      { name: 'Groq API', usedIn: [KENNEDYS, FINTRACK] },
       { name: 'OpenCV', usedIn: [KENNEDYS] },
       { name: 'Tesseract OCR', usedIn: [KENNEDYS] },
       { name: 'NLP', usedIn: [KENNEDYS] },
@@ -94,9 +98,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: 'Databases',
     icon: '💾',
     skills: [
-      { name: 'PostgreSQL', usedIn: [TRANSIT] },
+      { name: 'PostgreSQL', usedIn: [TRANSIT, TRADE] },
       { name: 'MySQL', usedIn: [] },
-      { name: 'MongoDB', usedIn: [] },
+      { name: 'MongoDB', usedIn: [FINTRACK] },
       { name: 'SQLite', usedIn: [FILES, RECIPE] },
       { name: 'Redis', usedIn: [RECIPE] },
     ],
@@ -110,7 +114,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'GitHub Actions', usedIn: [TRANSIT] },
       { name: 'Linux', usedIn: [] },
       { name: 'Bash', usedIn: [] },
-      { name: 'CMake', usedIn: [FILES] },
+      { name: 'CMake', usedIn: [FILES, ASSEMBLER] },
       { name: 'Postman', usedIn: [] },
       { name: 'API and Integration Testing', usedIn: [] },
     ],
@@ -156,6 +160,41 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/roshanbinoj-iiitk/Odoo-Hackathon-TransitOps',
   },
   {
+    id: 'fintrack',
+    title: 'FinTrack',
+    tagline: 'Personal finance tracker with spending analytics and AI insights',
+    genre: 'AI & Full-Stack',
+    period: 'Jun 2026',
+    techStack: ['Next.js', 'TypeScript', 'MongoDB', 'Mongoose', 'Groq API', 'Recharts', 'Tailwind CSS', 'Zod'],
+    cartridgeColor: '#6844fc',
+    badge: 'LIVE DEMO',
+    description: 'A personal finance dashboard for logging income and expenses, exploring spending trends, and getting AI-generated recommendations.',
+    features: [
+      'Built transaction management on Next.js Server Actions with filtering, pagination, and bulk delete.',
+      'Generated structured financial recommendations using Groq (Llama 4 Scout) in JSON mode.',
+      'Added spending analytics with Recharts and CSV export of transaction data.',
+    ],
+    liveUrl: 'https://mini-fintech-dashboard-seven.vercel.app',
+    githubUrl: 'https://github.com/roshanbinoj-iiitk/Mini-Fintech-Dashboard',
+  },
+  {
+    id: '8051-assembler',
+    title: '8051 Assembler & Emulator',
+    tagline: 'C++17 assembler and cycle-counted CPU emulator for an 8051-style instruction subset',
+    genre: 'Systems & Tooling',
+    period: 'Apr 2026',
+    techStack: ['C++17', 'CMake'],
+    cartridgeColor: '#008888',
+    badge: 'IN PROGRESS',
+    description: 'A command-line toolchain that assembles a small 8051-inspired instruction subset into machine code and runs it in a cycle-counted emulator.',
+    features: [
+      'Wrote a two-pass assembler that collects labels, encodes instructions, and resolves relative jump offsets.',
+      'Modeled memory and registers in a fetch-decode-execute emulator that tracks total cycles.',
+      'Added checks for malformed instruction reads and out-of-range jumps, plus an optional per-step trace.',
+    ],
+    githubUrl: 'https://github.com/roshanbinoj-iiitk/8051-ISA-Assembler',
+  },
+  {
     id: 'desktop-file-analytics',
     title: 'Desktop File Analytics System',
     tagline: 'High-performance file scanner, duplicate detector, and disk space analyzer',
@@ -172,6 +211,41 @@ export const PROJECTS: Project[] = [
       'Designed a REST API (cpp-httplib, SQLite FTS5 search) with 1.3 ms median and under 15 ms p95 latency.',
     ],
     githubUrl: 'https://github.com/roshanbinoj-iiitk/Data-Vantage',
+  },
+  {
+    id: 'tradebridge',
+    title: 'TradeBridge',
+    tagline: 'Peer-to-peer rental marketplace with payments and QR-verified pickups',
+    genre: 'Full-Stack Web App',
+    period: 'Aug 2025 - Nov 2025',
+    techStack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Stripe Connect', 'Tailwind CSS'],
+    cartridgeColor: '#00a844',
+    badge: 'LIVE DEMO',
+    description: 'A rental marketplace where people list items, book them from each other, and pay through the platform, with community features built around trust.',
+    features: [
+      'Integrated Stripe Connect so lenders onboard and receive payouts, with a 10% platform fee on each checkout.',
+      'Built item handover with short-lived signed QR codes (JWT, 10-minute expiry) checked on collection.',
+      'Added Google sign-in, an admin panel, reviews, trust scores, follows, and a community forum.',
+    ],
+    liveUrl: 'https://trade-bridge-five.vercel.app',
+    githubUrl: 'https://github.com/roshanbinoj-iiitk/TradeBridge',
+  },
+  {
+    id: 'spotify-recommender',
+    title: 'Spotify Song Recommender',
+    tagline: 'Content-based music recommendations from a Spotify playlist',
+    genre: 'AI & Machine Learning',
+    period: 'Nov 2025',
+    techStack: ['Python', 'scikit-learn', 'Pandas', 'Spotipy', 'Joblib', 'Jupyter'],
+    cartridgeColor: '#a84000',
+    badge: 'COURSE PROJECT',
+    description: 'An Artificial Intelligence course project that recommends 30 new songs for a playlist by comparing it against a dataset of over 1 million tracks.',
+    features: [
+      'Built playlist feature vectors from normalized audio features and multi-hot encoded genres.',
+      'Ranked tracks by cosine similarity, then selected 15, 10, and 5 songs from the top 3 genres.',
+      'Parallelized playlist data fetching with Joblib.',
+    ],
+    githubUrl: 'https://github.com/roshanbinoj-iiitk/SpotifySongRecommender',
   },
   {
     id: 'hacktherecipe',
