@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../types';
 import { ProjectModal } from '../components/modals/ProjectModal';
@@ -18,8 +18,22 @@ export const Projects: React.FC = () => {
 
   const handleOpenModal = (project: Project) => {
     sound.playSelect();
+    window.history.pushState({ stage: 'projects', modal: true }, '', '#projects');
     setActiveModalProject(project);
   };
+
+  // Close the modal via history so the extra entry is removed as well
+  const handleCloseModal = () => {
+    if (window.history.state?.modal) window.history.back();
+    else setActiveModalProject(null);
+  };
+
+  // Phone Back button (or history.back() above) closes the modal
+  useEffect(() => {
+    const onPopState = () => setActiveModalProject(null);
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -224,7 +238,7 @@ export const Projects: React.FC = () => {
       {/* Case Study Modal */}
       <ProjectModal
         project={activeModalProject}
-        onClose={() => setActiveModalProject(null)}
+        onClose={handleCloseModal}
       />
 
       {/* Navigation Footer */}

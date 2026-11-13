@@ -26,6 +26,15 @@ export interface ThemeContextType {
   setTextSpeed: (speed: 'slow' | 'normal' | 'fast') => void;
 }
 
+const PAGE_IDS: PageId[] = [
+  'start', 'about', 'skills', 'experience', 'projects', 'contact', 'settings', 'map',
+];
+
+const stageFromHash = (): PageId => {
+  const hash = window.location.hash.slice(1) as PageId;
+  return PAGE_IDS.includes(hash) ? hash : 'start';
+};
+
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -57,9 +66,24 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   });
 
   const [coins, setCoins] = useState<number>(42);
-  const [currentStage, setCurrentStageState] = useState<PageId>('start');
+  const [currentStage, setCurrentStageState] = useState<PageId>(stageFromHash);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [textSpeed, setTextSpeedState] = useState<'slow' | 'normal' | 'fast'>('normal');
+
+  // Sync stage with browser history so the phone Back button goes to the previous stage
+  useEffect(() => {
+    window.history.replaceState({ stage: stageFromHash() }, '', window.location.hash || '#start');
+    window.history.scrollRestoration = 'manual';
+
+    const onPopState = () => {
+      setCurrentStageState(stageFromHash());
+      setIsPaused(false);
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -110,8 +134,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const setCurrentStage = (stage: PageId) => {
-    setCurrentStageState(stage);
     sound.playSelect();
+    if (stage === currentStage) return;
+    window.history.pushState({ stage }, '', `#${stage}`);
+    setCurrentStageState(stage);
+    window.scrollTo(0, 0);
   };
 
   const setTextSpeed = (speed: 'slow' | 'normal' | 'fast') => {
