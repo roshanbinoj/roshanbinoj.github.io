@@ -55,6 +55,7 @@ export const Projects: React.FC = () => {
             { id: 'full-stack', label: 'FULL-STACK' },
             { id: 'systems', label: 'SYSTEMS' },
             { id: 'ai', label: 'AI' },
+            { id: '3d', label: '3D' },
           ].map(tab => (
             <button
               key={tab.id}

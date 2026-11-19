@@ -20,7 +20,7 @@ export const HERO_PROFILE = {
   records: [
     { label: 'CGPA', value: '7.91 / 10' },
     { label: 'INTERNSHIPS', value: '1' },
-    { label: 'PROJECTS', value: '7' },
+    { label: 'PROJECTS', value: '8' },
     { label: 'PICOCTF 2025', value: 'TOP 4%' },
   ],
   bio: `Greetings, traveler! I'm Roshan Binoj, a software engineer and full-stack developer from Thiruvananthapuram, India. I'm studying Computer Science and Engineering at IIIT Kottayam and will finish in April 2027.`,
@@ -141,6 +141,25 @@ export const EXPERIENCE_QUESTS: ExperienceQuest[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'iiitk-campus-3d',
+    title: 'IIIT Kottayam 3D Campus Map',
+    tagline: 'Browser 3D campus map with search, hill-aware walking routes, and a guided tour',
+    genre: '3D Web App',
+    period: 'Nov 2026',
+    techStack: ['Blender (Python)', 'glTF', 'Next.js', 'React', 'React Three Fiber', 'GitHub Pages'],
+    cartridgeColor: '#e45c10',
+    badge: '5,900+ VISITS',
+    description: 'A 3D map of the IIIT Kottayam campus that runs in the browser, phones included. Search any building or room, follow walking routes over the real paths, or take the orientation tour built for freshers.',
+    features: [
+      'Generated the whole campus from OpenStreetMap footprints and elevation data with one Blender Python script, tracing missing buildings from satellite imagery.',
+      'Added search that flies to any building or room, walking routes with hill-aware times, and a stop-by-stop orientation tour.',
+      'Held the model to 150,000 triangles and under 800 KB with baked lighting and a build-time budget check that fails the build if anything goes over.',
+      'Drew 5,900+ visits in one week after a LinkedIn launch post (75,000+ impressions), 69% of them on mobile.',
+    ],
+    liveUrl: 'https://roshanbinoj-iiitk.github.io/iiitk-campus-in-3d/',
+    githubUrl: 'https://github.com/roshanbinoj-iiitk/iiitk-campus-in-3d',
+  },
   {
     id: 'transitops',
     title: 'TransitOps',
