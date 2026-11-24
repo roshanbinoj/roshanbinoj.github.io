@@ -355,6 +355,7 @@ export const Contact: React.FC = () => {
                 { label: 'DIRECT EMAIL', value: CONTACT.email, icon: '✉️', link: `mailto:${CONTACT.email}` },
                 { label: 'GITHUB VAULT', value: CONTACT.github.replace('https://', ''), icon: '🐙', link: CONTACT.github },
                 { label: 'LINKEDIN NETWORK', value: CONTACT.linkedin.replace('https://www.', ''), icon: '💼', link: CONTACT.linkedin },
+                { label: 'RESUME SCROLL', value: 'View / download PDF', icon: '📜', link: CONTACT.resume },
               ].map(ch => (
                 <a
                   key={ch.label}

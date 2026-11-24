@@ -5,6 +5,7 @@ export const CONTACT = {
   github: 'https://github.com/roshanbinoj-iiitk',
   linkedin: 'https://www.linkedin.com/in/roshan-binoj-17m2005',
   location: 'Thiruvananthapuram, India',
+  resume: '/Roshan_Binoj_Resume.pdf',
 };
 
 export const HERO_PROFILE = {

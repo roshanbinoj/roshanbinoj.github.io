@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { NESButton } from '../components/common/NESButton';
 import { NESCard } from '../components/common/NESCard';
-import { HERO_PROFILE } from '../data/portfolioData';
+import { HERO_PROFILE, CONTACT } from '../data/portfolioData';
 import { launchPixelConfetti } from '../utils/confetti';
 import { sound } from '../utils/audio';
 
@@ -198,6 +198,15 @@ export const StartScreen: React.FC = () => {
               onClick={handleInsertCoin}
             >
               🪙 INSERT COIN (+100 PTS)
+            </NESButton>
+
+            <NESButton
+              variant="primary"
+              size="md"
+              soundType="select"
+              onClick={() => window.open(CONTACT.resume, '_blank', 'noopener')}
+            >
+              📜 VIEW RESUME
             </NESButton>
           </div>
         </div>
